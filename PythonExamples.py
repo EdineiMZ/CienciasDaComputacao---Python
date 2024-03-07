@@ -1,7 +1,11 @@
+#importação das bibliotecas utilizadas
 import random
 import time
 
+#mensagem de boas vindas
 print("Hello Word!!!")
+
+#Exemplos de utilização
 
 def exemplo1(): #Exemplo de IF ELSE ELIF
     numero = random.randint(0, 300) #define na variavel numero um valor randomico entre 0 e 300
@@ -12,15 +16,18 @@ def exemplo1(): #Exemplo de IF ELSE ELIF
     else:
         print("Numero maior que 100", numero)
 
+
 def exemplo2(): #Exemplo do While (Enquanto) para encontrar uma chave
-    chave = random.randint(0, 50)
+    chave = random.randint(0, 50) #Dev=fine o valor da chave de segurança
     numero = 0
     print("Chave definida", chave)
-    while numero != chave:
+    while numero != chave: #define que enquanto o numero for direfente da chave, imprime valor incoreto
         print("Valor Incoreto")
         time.sleep(0.2)
         numero = random.randint(0, 50)
     print("Chave encontrada", numero)
+
+#EXERCICIOS
 
 
 #	O sistema de avaliação de determinada disciplina é composto por três provas.
@@ -40,8 +47,6 @@ def atv1():
     else:
         print("Aluno precisa fazer a recuperação total. Sua media ficou", media)
 
-
-
 #Elabore um algoritmo que indique se um número digitado está compreendido entre 20 e 90, ou não
 def atv2():
     numero = random.randint(0, 150) #define na variavel numero um valor randomico entre 0 e 150
@@ -51,8 +56,6 @@ def atv2():
         print("O numero selecionado é", numero, "e ele esta entre 20 e 90")
     else:
         print("Numero maior que 90:", numero)
-
-
 
 #Um comerciante comprou um produto e quer vendê-lo com um lucro de 45% se o valor da compra for menor que R$ 20,00;
 #Caso contrário, o lucro será de 30%. Elabore um algoritmo que leia o valor do produto.
@@ -67,7 +70,6 @@ def atv3():
         valorVenda = valorCompra + ((valorCompra * 30) / 100)
         vendaFormat = f"{valorVenda:.2f}"
         print("Será vendido com um lucro de 30% pois o valor da venda foi de R$", valorCompra, " saindo com um total  R$", vendaFormat)
-
 
 #Segundo uma tabela médica, o peso ideal está relacionado com a altura e o sexo.
 #Elabore um algoritmo que leia a altura e o sexo de uma pessoa (M/F), calcule e imprima seu peso ideal, utilizando as seguintes fórmulas.
@@ -110,7 +112,6 @@ def atv6():
     else:
         print("Valor menor que 10")
 
-
 #Desenvolva um algoritmo que classifique um número de entrada fornecido pelo usuário como PAR ou ÍMPAR.
 def atv7():
     numero = random.randint(1, 30000000)
@@ -120,7 +121,6 @@ def atv7():
     else:
         print("Impar", numero)
 
-
 #Elabore um algoritmo que leia um número e imprima uma das mensagens: é múltiplo de 3, ou, não é múltiplo de 3.
 def atv8():
     numero = random.randint(1, 30000000)
@@ -129,7 +129,6 @@ def atv8():
         print("Multiplo de 3", numero)
     else:
         print("Não é multiplo de 3", numero)
-
 
 #Elabore um algoritmo que leia dois números e responda se a divisão do primeiro pelo segundo é exata (o resto da divisão deve ser igual a 0).
 #Se for, o algoritmo deve imprimir a mensagem “A divisão de (1º numero) por (2º número) é exata”.
@@ -143,16 +142,23 @@ def atv9():
         print("A Divisão do numero", numero, "pelo numero", numero2, "é exata")
 
 # 5)Elabore um algoritmo que leia o nome e o peso de duas pessoas e imprima os dados da pessoa mais pesada. Os pesos delas serão diferentes.
+def atv10():
+    nomeP1 = input("Insira seu nome: ")
+    peso1 = round(random.uniform(10, 150), 3)
+    nomeP2 = input("Insira seu nome Pessoa 2: ")
+    peso2 = round(random.uniform(10, 150), 3)
+    if peso1 > peso2:
+        print("A(o)", nomeP1, "é mais pesada que a(o)", nomeP2, "pesando", peso1, ".", nomeP2, "pesa", peso2)
+    else:
+        print("A(o)", nomeP2, "é mais pesada que a(o)", nomeP1, "pesando", peso2, ".", nomeP1, "pesa", peso1)
 
 
-
-
-
-
-
-
-
-
+#atv10()
+#atv9()
+#atv8()
+#atv7()
+#atv6()
+#atv5()
 #atv4()
 #atv3()
 #atv2()
