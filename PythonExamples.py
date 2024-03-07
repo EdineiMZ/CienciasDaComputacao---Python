@@ -141,7 +141,7 @@ def atv9():
     else:
         print("A Divisão do numero", numero, "pelo numero", numero2, "é exata")
 
-# 5)Elabore um algoritmo que leia o nome e o peso de duas pessoas e imprima os dados da pessoa mais pesada. Os pesos delas serão diferentes.
+#Elabore um algoritmo que leia o nome e o peso de duas pessoas e imprima os dados da pessoa mais pesada. Os pesos delas serão diferentes.
 def atv10():
     nomeP1 = input("Insira seu nome: ")
     peso1 = round(random.uniform(10, 150), 3)
