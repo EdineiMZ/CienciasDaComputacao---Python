@@ -152,7 +152,6 @@ def atv10():
     else:
         print("A(o)", nomeP2, "é mais pesada que a(o)", nomeP1, "pesando", peso2, ".", nomeP1, "pesa", peso1)
 
-
 #atv10()
 #atv9()
 #atv8()
