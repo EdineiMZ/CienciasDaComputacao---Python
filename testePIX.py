@@ -10,7 +10,9 @@ pix_data = {
     "valor": valor_PIX,
 }
 
-pix_format = f"t={pix_data['chave']}&desc={pix_data['descricao']}&v={pix_data['valor']}&s=200"
+#pix_format = f"t={pix_data['chave']}&desc={pix_data['descricao']}&v={pix_data['valor']}&s=200"
+pix_format = f"00020101021226370014BR.GOV.BCB.PIX{pix_data['chave']}52040000530398654041{pix_data['valor']}5802BR5915{pix_data['descricao']}6009BRASIL.G0112https://www.bcb.gov.br/pix/dadosqr"
+
 
 qr = qrcode.QRCode(
     version=1,
