@@ -152,6 +152,52 @@ def atv10():
     else:
         print("A(o)", nomeP2, "é mais pesada que a(o)", nomeP1, "pesando", peso2, ".", nomeP1, "pesa", peso1)
 
+#	Elabore um algoritmo que leia dois números inteiros e imprima qual é maior, qual é menor, ou se os dois números são iguais.
+def atv11():
+    numero = random.randint(0, 10)  # define na variavel numero um valor randomico entre 0 e 150
+    numero2 = random.randint(0, 10)  # define na variavel numero um valor randomico entre 0 e 150
+    if numero > numero2:
+        print("O numero 1:", numero, "é maior que o numero 2:", numero2,"!")
+    elif numero == numero2:
+        print("O numero 1:", numero, "é igual ao numero 2:", numero2, "!")
+    else:
+        print("O numero 1:", numero, "é menor que o numero 2:", numero2, "!")
+
+#Uma empresa decidiu conceder um aumento de salários a seus funcionários de acordo com a tabela abaixo:
+def atv12():
+    salario = round(random.uniform(-500, 5000), 2)
+    print("Seu salário é de: R$", salario)
+    if salario <= 0:
+        print("Valor Invalido")
+    elif salario <= 100:
+        aumento = 25
+    elif salario <= 2000:
+        aumento = 20
+    elif salario <= 3000:
+        aumento = 15
+    else:
+        aumento = 10
+
+    if salario > 0:
+        print("O percentual de aumento do seu salário é de", aumento,"%")
+        aumento = (salario * aumento) / 100
+        novoSalario = f"{salario + aumento:.2f}"
+        print("Seu salario sera de R$",novoSalario, "Com um aumento de R$",aumento)
+    else:
+        quit()
+
+def atv13():
+    numero = random.randint(0, 50000)
+    divisao2 = numero % 2
+    divisao3 = numero % 3
+    divisao5 = numero % 5
+
+    if divisao2 + divisao3 + divisao5 == 0:
+        print("o numero é divider por 2 3 5")
+
+atv13()
+#atv12()
+#atv11()
 #atv10()
 #atv9()
 #atv8()
