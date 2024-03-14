@@ -1,6 +1,7 @@
 #importação das bibliotecas utilizadas
 import random
 import time
+import requests
 
 #mensagem de boas vindas
 print("Hello Word!!!")
@@ -193,9 +194,59 @@ def atv13():
     divisao5 = numero % 5
 
     if divisao2 + divisao3 + divisao5 == 0:
-        print("o numero é divider por 2 3 5")
+        print("o numero", numero,"é divisivel por 2, 3 e 5")
+    else:
+        print("o numero", numero,"não é divisivel por 2, 3 e 5")
 
-atv13()
+def TESTEAPI():
+    response = requests.get('https://www.4devs.com.br/ferramentas.online.php',params={'acao': 'gerarnomes_produtos'})
+    if response.status_code == 200:
+        nome_produto = response.text
+        print(nome_produto)
+    else:
+        print('Erro ao acessar')
+
+def atv14():
+    nomes_produtos = [
+        'Computador', 'Tablet', 'Smartphone', 'Câmera', 'Fones de Ouvido',
+        'Teclado', 'Mouse', 'Monitor', 'Impressora', 'Carregador',
+        'Caixa de Som', 'Roteador', 'Cadeira', 'Mesa', 'Laptop',
+        'Drone', 'Relógio', 'Headset', 'Microfone', 'Power Bank',
+        'Geladeira', 'Liquidificador', 'Fogão', 'Aspirador de Pó',
+        'Máquina de Lavar', 'Secador de Cabelo', 'Ventilador', 'Aparelho de Som',
+        'Cafeteira', 'Panela Elétrica', 'Sanduicheira', 'Ferro de Passar',
+        'Torradeira', 'Espremedor de Frutas', 'Freezer', 'Ar Condicionado',
+        'Micro-ondas', 'Batedeira', 'Tábua de Passar', 'Fritadeira Elétrica',
+        'Processador de Alimentos', 'Chuveiro Elétrico', 'Mixer', 'Cama',
+        'Guarda-Roupa', 'Sofá', 'Escrivaninha', 'Estante', 'Cadeira de Escritório',
+        'Poltrona', 'Mesa de Jantar', 'Cômoda', 'Criado-Mudo', 'Cortina',
+        'Tapete', 'Lustre', 'Abajur', 'Persiana', 'Quadro Decorativo',
+        'Moldura', 'Vaso Decorativo', 'Relógio de Parede', 'Espelho',
+        'Almofada', 'Cesto de Roupa', 'Puff', 'Lixeira', 'Toalha de Banho',
+        'Saboneteira', 'Porta Shampoo', 'Tapete de Banheiro', 'Cesto Organizador',
+        'Porta-Retrato', 'Vela Aromática', 'Aromatizador de Ambiente', 'Jogo de Cama',
+        'Colcha', 'Edredom', 'Travesseiro', 'Cobre-Leito', 'Lençol',
+        'Almofada Decorativa', 'Protetor de Colchão', 'Manta', 'Capa de Almofada'
+    ]
+    valorProduto = round(random.uniform(0, 70), 2)
+    if valorProduto < 10:
+        lucro = 70
+    elif valorProduto >= 10 and 30 > valorProduto:
+        lucro = 50
+    elif valorProduto >= 30 and valorProduto < 50:
+        lucro = 40
+    else:
+        lucro = 30
+    lucroVenda = valorProduto * lucro / 100
+    produto = random.choice(nomes_produtos)
+    print("O valor do produto", produto,"é de R$ ", valorProduto)
+    print("Por isso a margem de lucro é de", f"{lucro:.2f}","%")
+    print("Sendo vendido com um lucro de", f"{lucroVenda:.2f}")
+    print("Totalizando um valor de", f"{lucroVenda + valorProduto:.2f}")
+
+atv14()
+#TESTEAPI()
+#atv13()
 #atv12()
 #atv11()
 #atv10()
