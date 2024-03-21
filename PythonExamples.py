@@ -566,29 +566,85 @@ def atv24():
 
 def atv25():
     mes = random.randint(-1, 13)
-    print(mes)
-    if mes <= 6 and mes >= 1:
-        if mes == 1:
+    match mes:
+        case 1:
             print("Janeiro")
-        elif mes == 2:
+        case 2:
             print("Fevereiro")
-        elif mes == 3:
+        case 3:
             print("Março")
-        elif mes == 4:
+        case 4:
             print("Abril")
-        elif mes == 5:
+        case 5:
             print("Maio")
-        else:
+        case 6:
             print("Junho")
-    elif mes >=7 and mes <= 12:
-        print("Segundo semestre do ano")
-    else:
-        print("Não existe mês com esse numero")
+        case 7|8|9|10|11|12:
+            print("Segundo semestre")
+        case _:
+            print("Não existe um mês com essa numeração")
+
+
+
+def atv26():
+    preco = round(random.uniform(0, 5000), 2)
+    nome = input("Insira o nome do produto: ")
+    codorigem = random.randint(1, 30)
+
+    match codorigem:
+        case 1:
+            print("Sul")
+            local = "Sul"
+        case 2:
+            print("Norte")
+            local = "Norte"
+        case 3:
+            print("Leste")
+            local = "Leste"
+        case 4:
+            print("Oeste")
+            local = "Oeste"
+        case 5|6:
+            print("Noroeste")
+            local = "Noroeste"
+        case 7|8|9:
+            print("Sudeste")
+            local = "Sudeste"
+        case 10|11|12:
+            print("Centro Oeste")
+            local = "Centro Oeste"
+        case 13|14|15:
+            print("Noroeste")
+            local = "Noroeste"
+        case _:
+            print("Importado")
+            local = "Importado"
+
+    con = sqlite3.connect("products.db")
+    cur = con.cursor()
+    cur.execute("CREATE TABLE IF NOT EXISTS produtos(id INTEGER PRIMARY KEY AUTOINCREMENT, preco, nome, local, codorigem)")
+    #
+    # cur.execute("""
+    # INSERT INTO produtos VALUES
+    # (1, 8.99,'Batata Inglesa','Europa',60)
+    # """)
+
+    cur.execute("INSERT INTO produtos (preco, nome, local, codorigem) VALUES (?, ?, ?, ?)", (preco, nome, local, codorigem))
+    con.commit()
+    # id = 1
+    # cur.execute("SELECT * FROM produtos WHERE id = ?", (1,))
+    # produto = cur.fetchone()
+    # print(produto)
+
+    cur.execute("SELECT * FROM produtos")
+    registros = cur.fetchall()
+    for registros in registros:
+        print(registros)
 
 
 
 
-
+atv26()
 #atv25()
 #atv24()
 #atv23()
