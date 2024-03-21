@@ -1,7 +1,11 @@
+#Servidor do Discord
+# https://www.discord.gg/4tYjBsnZ7a
+
 #importação das bibliotecas utilizadas
 import random
 import time
 import requests
+import sqlite3
 
 #mensagem de boas vindas
 print("Hello Word!!!")
@@ -244,7 +248,362 @@ def atv14():
     print("Sendo vendido com um lucro de", f"{lucroVenda:.2f}")
     print("Totalizando um valor de", f"{lucroVenda + valorProduto:.2f}")
 
-atv14()
+def exemplo3():
+    numero = 1
+    qtd = 0
+
+    while numero <= 50000:
+        divisao2 = numero % 2
+        divisao3 = numero % 3
+        divisao5 = numero % 5
+
+        if divisao2 + divisao3 + divisao5 == 0:
+            print("o numero", numero,"é divisivel por 2, 3 e 5")
+            qtd = qtd + 1
+        else:
+            print("o numero", numero,"não é divisivel por 2, 3 e 5")
+
+        numero = numero + 1
+        print("Total", qtd)
+
+def atv15():
+    q1 = True
+    q2 = True
+    q3 = False
+
+    if q1:
+        print('A')
+        if q2:
+            print('B')
+            print('C')
+        elif q3:
+            print('D')
+        else:
+            print('E')
+    else:
+        print('F')
+    print('G')
+
+def atv16():
+    x = 30
+    y = 5
+    w = False
+    z = False
+    k = 'teste'
+    if (x > y) and (w is False):
+        print('A')
+        if (k == 'teste') and (x <= 20):
+            print('B')
+    else:
+        if (w == True):
+            print('C')
+        elif (z is True) or (k != 'teste'):
+            print('D')
+            print('E')
+        else:
+            print('F')
+            print('G')
+    print('H')
+
+def atv17():
+    salario = round(random.uniform(-500, 5000), 2)
+    print("Seu salário é de: R$", salario)
+    if salario <= 0:
+        print("Valor Invalido")
+    elif salario <= 2000:
+        aumento = 10
+    elif salario <= 3000:
+        aumento = 20
+    elif salario <= 4000:
+        aumento = 25
+    else:
+        aumento = 30
+
+    if salario > 0:
+        print("O percentual do credito especial de seu salário é de", aumento,"%")
+        aumento = (salario * aumento) / 100
+        novoSalario = f"{salario + aumento:.2f}"
+        print("Seu salario com crédito especial será de R$",novoSalario, "O valor do credito será de R$", f"{aumento:.2f}")
+    else:
+        quit()
+
+def atv18():
+    valor1 = round(random.uniform(-500, 50000), 2)
+    valor2 = round(random.uniform(-500, 50000), 2)
+    valor3 = round(random.uniform(-500, 50000), 2)
+    print("Os valores selecionados foram: ", valor1 , valor2 , valor3)
+
+    ordenacao = sorted([valor1, valor2, valor3], reverse=True)
+    print("Os valores ordenados de forma decressente são: ", ordenacao)
+
+def atv19():
+    times_de_futebol = {
+        "Real Madrid", "Barcelona", "Manchester United", "Liverpool", "Bayern de Munique",
+        "Paris Saint-Germain", "Juventus", "Borussia Dortmund", "Chelsea", "Arsenal",
+        "Flamengo", "Corinthians", "São Paulo", "Palmeiras", "Santos", "Vasco da Gama",
+        "Grêmio", "Internacional", "Atlético Mineiro", "Cruzeiro", "Manchester City",
+        "Tottenham", "AC Milan", "Inter de Milão", "Roma", "Napoli", "Lazio", "Benfica",
+        "Porto", "Sporting Lisboa", "Ajax", "PSV Eindhoven", "Feyenoord", "Boca Juniors",
+        "River Plate", "Racing Club", "América de Cali", "Club América", "Seattle Sounders",
+        "LA Galaxy", "New York City FC", "Toronto FC", "Bayer Leverkusen", "RB Leipzig",
+        "Wolfsburg", "Schalke 04", "Hamburger SV", "Eintracht Frankfurt", "Atalanta",
+        "Lyon", "Marseille", "Monaco", "Bordeaux", "PSG", "Celtic", "Rangers", "Fulham",
+        "West Ham United", "Leicester City", "Everton", "Ajax", "Feyenoord",
+        "PSV Eindhoven"
+    }
+
+    time_sorteado1 = random.choice(list(times_de_futebol))
+    time_sorteado2 = random.choice(list(times_de_futebol))
+    numeroGolsTime1 = random.randint(0, 5)
+    numeroGolsTime2 = random.randint(0, 5)
+
+    if numeroGolsTime1 or numeroGolsTime2 < 0:
+        print("Valor invalido para o numero de gols")
+    else:
+
+        if numeroGolsTime1 > numeroGolsTime2:
+            print("Time ", time_sorteado2, "perdeu com", numeroGolsTime1, "gols para o time ", time_sorteado1, "com ", numeroGolsTime2, "gols")
+        elif numeroGolsTime1 == numeroGolsTime2:
+            print("Time ", time_sorteado1, "empatou com o time ", time_sorteado2, " com ", numeroGolsTime2)
+        else:
+            print("Time ", time_sorteado1, "perdeu com", numeroGolsTime1, "gols para o time ", time_sorteado2, "com ", numeroGolsTime2, "gols")
+
+def atv20():
+    idade = random.randint(0, 100)
+    if idade <= 12:
+        print("Criaça com", idade, "anos de idade")
+    elif idade >12 and idade <= 18:
+        print("Adolecente com", idade, "anos de idade")
+    elif idade > 18 and idade <=60:
+        print("Adulto com", idade, "anos de idade")
+    else:
+        print("Idoso com", idade, "anos de idade")
+
+def exemplo4():
+    Times = input("Digite nomes de times separados por virgulas: ")
+    time1, time2 = Times.split(',')
+
+    time1 = time1.strip()
+    time2 = time2.strip()
+
+    print("Time 1", time1)
+    print("Time 2", time2)
+
+def atv21():
+    equilatero = 0
+    isosceles = 0
+    escaleno = 0
+    while equilatero == 0:
+        lado1 = random.randint(1, 50)
+        lado2 = random.randint(1, 50)
+        lado3 = random.randint(1, 50)
+
+        if lado1 < lado2 + lado3 or lado2 < lado1 + lado3 or lado3 < lado1 + lado2:
+            print("É um triangulo com as medidas", lado1, lado2, lado3)
+            if lado1 == lado2 == lado3:
+                print("Equilatero")
+                equilatero = equilatero + 1
+            elif lado1 == lado2 or lado1 == lado3 or lado2 == lado3:
+                print("Isosceles")
+                isosceles = isosceles + 1
+            else:
+                print("Escaleno")
+                escaleno = escaleno + 1
+        else:
+            print("Valores Invalidos", lado1, lado2, lado3)
+    print("Isosceles", isosceles, "Escaleno", escaleno, "Equilateros", equilatero)
+
+def exemplo5():
+    numeros = input(f"Digite numeros separados por virgulas: ")
+    numerosstr = numeros.split(',')
+    numeros1= int(numerosstr[0])
+    numeros2 = int(numerosstr[1])
+    print(numeros1 + numeros2)
+
+def atv22():
+    numeros = input(f"Digite nomes de times separados por virgulas: ")
+    numerosstr = numeros.split(',')
+    numeros1= int(numerosstr[0])
+    numeros2 = int(numerosstr[1])
+
+    print("########################################################################")
+    print("#                                                                      #")
+    print("#                Informe uma das seguintes opções                      #")
+    print("#                   1) Media entre os valores                          #")
+    print("#          2) Diferença Maior pelo menor se fores diferentes           #")
+    print("#                      3) Sair do Programa                             #")
+    print("#                                                                      #")
+    print("########################################################################")
+    opcao = int(input(f"Informe a opção desejada: "))
+    if opcao == 1:
+        resposta = (numeros2 + numeros1) / 2
+        print("A média entre os valores é de", resposta)
+    elif opcao == 2:
+        if numeros1 > numeros2:
+            resposta = numeros1 - numeros2
+            print("A Diferença entre eles é de", resposta)
+        else:
+            resposta = numeros2 - numeros1
+            print("A Diferença entre eles é de", resposta)
+    elif opcao == 3:
+        print("Saindo do Programa...")
+    else:
+        print("Opção Inválida")
+
+def atv23():
+    trabalho1 = float(input("Informe a nota do Trabalho 1: "))
+    prova1 = float(input("Informe a nota da Prova 1: "))
+    prova2 = float(input("Informe a nota da Prova 2: "))
+    trabalhos_individuais = float(input("Informe a nota dos Trabalhos Individuais: "))
+    atividades_ensino_extensao = float(input("Informe a nota das Atividades de Ensino e Extensão: "))
+    frequencia = float(input("Informe a frequência do acadêmico em %: "))
+
+    media = (trabalho1 * 0.25) + (prova1 * 0.25) + (prova2 * 0.30) + (trabalhos_individuais * 0.10) + (
+                atividades_ensino_extensao * 0.10)
+
+    if frequencia >= 75:
+        situacaoF = "Aprovado na frequência"
+    else:
+        situacaoF = "Reprovado por frequência"
+
+    if media >= 7:
+        situacaoM = "Aprovado em média"
+    elif media < 4:
+        situacaoM = "Reprovado por média"
+    else:
+        situacaoM = "Em A2"
+
+    print("A média final do acadêmico é:", media)
+    print("Situação:", situacaoM)
+    print("Situação:", situacaoF)
+
+def atv24():
+    def eh_bissexto(ano):
+        return (ano % 4 == 0 and ano % 100 != 0) or ano % 400 == 0
+    def calcular_proximo_dia(dia, mes, ano):
+        meses_30 = [4, 6, 9, 11]
+        meses_31 = [1, 3, 5, 7, 8, 10, 12]
+        # Verificar se o ano é bissexto
+        bissexto = eh_bissexto(ano)
+        # Validar se a data é válida
+        if (mes < 1 or mes > 12 or
+                (mes in meses_30 and dia > 30) or
+                (mes in meses_31 and dia > 31) or
+                (mes == 2 and ((bissexto and dia > 29) or (not bissexto and dia > 28)))):
+            print("Data inválida!")
+            return
+        # Calcular o próximo dia
+        if mes in meses_30:
+            if dia == 30:
+                dia = 1
+                mes += 1
+            else:
+                dia += 1
+        elif mes in meses_31:
+            if dia == 31:
+                if mes == 12:
+                    dia = 1
+                    mes = 1
+                    ano += 1
+                else:
+                    dia = 1
+                    mes += 1
+            else:
+                dia += 1
+        else:  # Fevereiro
+            if bissexto:
+                if dia == 29:
+                    dia = 1
+                    mes += 1
+                else:
+                    dia += 1
+            else:
+                if dia == 28:
+                    dia = 1
+                    mes += 1
+                else:
+                    dia += 1
+        print(f"O próximo dia é: {dia}/{mes}/{ano}")
+    def calcular_dia_anterior(dia, mes, ano):
+        meses_30 = [4, 6, 9, 11]
+        meses_31 = [1, 3, 5, 7, 8, 10, 12]
+
+        # Verificar se o ano é bissexto
+        bissexto = eh_bissexto(ano)
+
+        # Calcular o dia anterior
+        dia -= 1
+        # Verificar se o dia é negativo, o que significa que precisamos retroceder para o mês anterior
+        if dia <= 0:
+            mes -= 1
+            if mes < 1:
+                mes = 12
+                ano -= 1
+            # Determinar o último dia do mês anterior
+            if mes in meses_30:
+                dia = 30
+            elif mes in meses_31:
+                dia = 31
+            else:  # Fevereiro
+                if bissexto:
+                    dia = 29
+                else:
+                    dia = 28
+        print(f"O dia anterior é: {dia}/{mes}/{ano}")
+
+    dia = random.randint(1, 31)
+    mes = random.randint(1, 12)
+    ano = random.randint(2024, 2025)
+
+    calcular_dia_anterior(dia, mes, ano)
+    print(f"O dia atual é: {dia}/{mes}/{ano}")
+    calcular_proximo_dia(dia, mes, ano)
+
+
+#Elabore um algoritmo que leia um número inteiro entre 1 e 6 e imprima o mês correspondente.
+# Caso seja digitado um valor entre 7 e 12, informar que é um mês localizado no segundo semestre do ano.
+# Caso seja digitado um valor fora desse intervalo, deverá ser exibida uma mensagem informando que não existe mês com esse número.
+
+def atv25():
+    mes = random.randint(-1, 13)
+    print(mes)
+    if mes <= 6 and mes >= 1:
+        if mes == 1:
+            print("Janeiro")
+        elif mes == 2:
+            print("Fevereiro")
+        elif mes == 3:
+            print("Março")
+        elif mes == 4:
+            print("Abril")
+        elif mes == 5:
+            print("Maio")
+        else:
+            print("Junho")
+    elif mes >=7 and mes <= 12:
+        print("Segundo semestre do ano")
+    else:
+        print("Não existe mês com esse numero")
+
+
+
+
+
+#atv25()
+#atv24()
+#atv23()
+#atv22()
+#exemplo5()
+#atv21()
+#exemplo4()
+#atv20()
+#atv19()
+#atv18()
+#atv17()
+#atv16()
+#atv15()
+#exemplo3()
+#atv14()
 #TESTEAPI()
 #atv13()
 #atv12()
