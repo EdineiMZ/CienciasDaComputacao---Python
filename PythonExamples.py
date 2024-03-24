@@ -585,66 +585,85 @@ def atv25():
             print("Não existe um mês com essa numeração")
 
 
+    # con = sqlite3.connect("products.db")
+    # cur = con.cursor()
+    # cur.execute("CREATE TABLE IF NOT EXISTS produtos(id INTEGER PRIMARY KEY AUTOINCREMENT, preco, nome, local, codorigem)")
+    # #
+    # # cur.execute("""
+    # # INSERT INTO produtos VALUES
+    # # (1, 8.99,'Batata Inglesa','Europa',60)
+    # # """)
+    #
+    # cur.execute("INSERT INTO produtos (preco, nome, local, codorigem) VALUES (?, ?, ?, ?)", (preco, nome, local, codorigem))
+    # con.commit()
+    # # id = 1
+    # # cur.execute("SELECT * FROM produtos WHERE id = ?", (1,))
+    # # produto = cur.fetchone()
+    # # print(produto)
+    #
+    # cur.execute("SELECT * FROM produtos WHERE (id) VALUES (?)", (id))
+    # registros = cur.fetchall()
+    # for registros in registros:
+    #     print(registros)
 
 def atv26():
-    preco = round(random.uniform(0, 5000), 2)
-    nome = input("Insira o nome do produto: ")
-    codorigem = random.randint(1, 30)
+    preco = round(random.uniform(1, 500), 2)
+    codorigem = random.randint(1, 20)
 
     match codorigem:
         case 1:
-            print("Sul")
             local = "Sul"
         case 2:
-            print("Norte")
             local = "Norte"
         case 3:
-            print("Leste")
             local = "Leste"
         case 4:
-            print("Oeste")
             local = "Oeste"
         case 5|6:
-            print("Noroeste")
             local = "Noroeste"
         case 7|8|9:
-            print("Sudeste")
             local = "Sudeste"
         case 10|11|12:
-            print("Centro Oeste")
             local = "Centro Oeste"
         case 13|14|15:
-            print("Noroeste")
             local = "Noroeste"
         case _:
-            print("Importado")
             local = "Importado"
+    print("Produto de R$", preco, "Origem", local)
 
-    con = sqlite3.connect("products.db")
-    cur = con.cursor()
-    cur.execute("CREATE TABLE IF NOT EXISTS produtos(id INTEGER PRIMARY KEY AUTOINCREMENT, preco, nome, local, codorigem)")
-    #
-    # cur.execute("""
-    # INSERT INTO produtos VALUES
-    # (1, 8.99,'Batata Inglesa','Europa',60)
-    # """)
+def atv27():
+    codigo = random.randint(1, 4)
+    def percenteualAumento(salario):
+        if codigo == 2 or codigo == 4 :
+            aumento = (salario*30)/100
+        elif codigo == 1:
+            aumento = (salario * 20) / 100
+        else:
+            aumento = (salario*15)/100
+        return aumento
+    match codigo:
+        case 1:
+            salario = 8000
+            descricao = "Analista de Sistemas"
+        case 2:
+            salario =10000
+            descricao = "Programador"
+        case 3:
+            salario = 15000
+            descricao = "Gerente de Redes"
+        case 4:
+            salario = 20000
+            descricao = "Gerente de TI"
 
-    cur.execute("INSERT INTO produtos (preco, nome, local, codorigem) VALUES (?, ?, ?, ?)", (preco, nome, local, codorigem))
-    con.commit()
-    # id = 1
-    # cur.execute("SELECT * FROM produtos WHERE id = ?", (1,))
-    # produto = cur.fetchone()
-    # print(produto)
-
-    cur.execute("SELECT * FROM produtos")
-    registros = cur.fetchall()
-    for registros in registros:
-        print(registros)
+    print("Cargo:", descricao, "- Salario:", salario, "- Aumento:", percenteualAumento(salario), " - Novo salário:", salario + percenteualAumento(salario))
 
 
 
 
-atv26()
+
+
+#atv27()
+#atv26()
 #atv25()
 #atv24()
 #atv23()
@@ -676,3 +695,41 @@ atv26()
 #atv1()
 #exemplo2()
 #exemplo1()
+
+
+# conjunto_produtos = {"Seleção de Temperos Internacionais", "Variedade de Geleias Artesanais",
+#                          "Barra de Granola Orgânica", "Chá de Especiarias Exóticas", "Chocolate Artesanal Premium",
+#                          "Café Gourmet", "Mix de Frutas Secas", "Biscoitos Artesanais", "Mel Puro",
+#                          "Azeite Extra Virgem", "Queijo Artesanal", "Vinho Tinto Reserva", "Cerveja Artesanal",
+#                          "Pacote de Massa Integral", "Molho de Tomate Caseiro", "Farinha de Trigo Orgânica",
+#                          "Snack de Castanhas", "Suco Natural de Frutas", "Lancheira Térmica",
+#                          "Garrafa de Água Reutilizável", "Copo de Bambu", "Tábua de Corte de Madeira",
+#                          "Conjunto de Facas de Cozinha", "Pote Hermético de Vidro", "Livro de Receitas Saudáveis",
+#                          "Assinatura de Clube de Degustação", "Kombucha Artesanal",
+#                          "Pão Integral de Fermentação Natural", "Sal Marinho Grosso", "Semente de Chia Orgânica",
+#                          "Sorvete Artesanal", "Barra de Chocolate Amargo", "Kit para Fazer Sushi em Casa",
+#                          "Tempero para Carne", "Ervas Finas Desidratadas", "Cookies de Aveia e Passas",
+#                          "Mix de Cogumelos Secos", "Mix de Ervas para Chá", "Xarope de Bordo Puro",
+#                          "Geleia de Frutas Vermelhas", "Pack de Cervejas Artesanais", "Kit para Fazer Pão Caseiro",
+#                          "Cesta de Café da Manhã", "Kit para Fazer Pizza em Casa", "Vinho Branco Seco",
+#                          "Aperitivo de Grão-de-Bico", "Chips de Batata Doce", "Salada de Quinoa Pronta",
+#                          "Manteiga de Amendoim Orgânica", "Canela em Pau", "Framboesas Frescas", "Salada de Lentilhas",
+#                          "Mix de Sementes Crocantes", "Bolachas de Arroz Integral", "Pasta de Amêndoas",
+#                          "Kit para Fazer Cerveja em Casa", "Garrafa Térmica de Café", "Moedor de Pimenta",
+#                          "Kit de Vinhos Internacionais", "Molho de Soja Orgânico", "Bebida de Amêndoa",
+#                          "Sorvete Vegano", "Cesta de Frutas Frescas", "Pack de Snacks Saudáveis",
+#                          "Barra de Proteína Vegana", "Pasta de Tomate Seco", "Melão Cantalupo", "Limões Sicilianos",
+#                          "Folhas de Manjericão Fresco", "Pacote de Cacau em Pó", "Cenouras Orgânicas",
+#                          "Bebida Energética Natural", "Biscoitos de Gengibre", "Salada de Frutas da Estação",
+#                          "Pão de Centeio Integral", "Gelatina de Algas Marinhas", "Chá Gelado de Hibisco",
+#                          "Baguete de Pão Francês", "Picles Artesanais", "Cereal Matinal Multigrãos",
+#                          "Sopa de Lentilhas e Vegetais", "Mix de Frutas Tropicais", "Brownies de Chocolate Sem Glúten",
+#                          "Pack de Água de Coco", "Feijão Preto Orgânico", "Tomates Cereja", "Pepinos em Conserva",
+#                          "Kit para Fazer Queijo Fresco", "Pacote de Sementes de Abóbora",
+#                          "Salada de Beterraba e Queijo Feta", "Torradas de Pão Integral",
+#                          "Granulado de Chocolate Amargo", "Pacote de Grãos de Café Arábica", "Chips de Banana-da-Terra",
+#                          "Molho de Pimenta Artesanal", "Kefir de Leite", "Suco Detox de Vegetais", "Muffins de Mirtilo",
+#                          "Mix de Nozes e Castanhas", "Pacote de Arroz Integral", "Cesta de Vegetais Orgânicos",
+#                          "Marmelada Caseira", "Pão de Queijo Tradicional", "Sopa de Abóbora com Gengibre",
+#                          "Pack de Cervejas Importadas", "Manteiga de Coco Orgânica", "Mix de Frutas Cristalizadas",
+#                          "Pack de Vinhos Nacionais"}
