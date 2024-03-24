@@ -681,6 +681,8 @@ def atv28():
 
 def jogo():
 #Jogo Exemplo
+
+#Feito Por GIOTTI e EU
     print('jogo legal')
 
     def jogo_legal():
