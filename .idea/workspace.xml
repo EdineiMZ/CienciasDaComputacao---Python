@@ -7,7 +7,6 @@
     <list default="true" id="5a4bc484-591f-4ca3-ae48-707b35b04594" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PythonExamples.py" beforeDir="false" afterPath="$PROJECT_DIR$/PythonExamples.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products.db" beforeDir="false" afterPath="$PROJECT_DIR$/products.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +71,7 @@
       <updated>1709765429656</updated>
       <workItem from="1710700770030" duration="12632000" />
       <workItem from="1710714719609" duration="9896000" />
-      <workItem from="1711318815950" duration="2874000" />
+      <workItem from="1711318815950" duration="4925000" />
     </task>
     <servers />
   </component>
@@ -80,6 +79,6 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/PythonExamples_py$PythonExamples.coverage" NAME="PythonExamples Coverage Results" MODIFIED="1711321110148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PythonExamples_py$PythonExamples.coverage" NAME="PythonExamples Coverage Results" MODIFIED="1711323853027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

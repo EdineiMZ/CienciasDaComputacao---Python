@@ -658,10 +658,57 @@ def atv27():
     print("Cargo:", descricao, "- Salario:", salario, "- Aumento:", percenteualAumento(salario), " - Novo salário:", salario + percenteualAumento(salario))
 
 
+def atv28():
+    numero1 = int(input("Digite o primeiro número inteiro: "))
+    numero2 = int(input("Digite o segundo número inteiro: "))
+    operacao = input("Digite o caractere da operação desejada (* para multiplicação, / para divisão, + para adição, - para subtração): ")
+    resultado = 0
+    match operacao:
+        case '*':
+            resultado = numero1 * numero2
+        case '/':
+            resultado = numero1 / numero2 if numero2 != 0 else "Divisão por zero!"
+        case '+':
+            resultado = numero1 + numero2
+        case '-':
+            resultado = numero1 - numero2
+        case _:
+            resultado = "Operação inválida!"
+
+    print("O resultado é ", resultado)
 
 
 
+def jogo():
+#Jogo Exemplo
+    print('jogo legal')
 
+    def jogo_legal():
+        s = random.randint(1, 100)
+        print(s)
+        tentativas = 0
+        contador = 0
+        while True:
+            tentativas = int(input('digite seu palpite: '))
+
+            contador += 1
+
+            if tentativas < s:
+                print('o numero secreto e maior tente novamente')
+            elif tentativas > s:
+                print('o numero secreto e menor tente novamente')
+            else:
+                print(f'parabains voce acertou o numero secreto: {s} em {contador} tentativas')
+                break
+        jogarnovamente = input('deseja jogar novamente? S/N')
+        if jogarnovamente.lower() == 'S':
+            jogo_legal()
+        else:
+            print('obrigado por jogar')
+    if __name__ == "__main__":
+        jogo_legal()
+
+#atv28()
 #atv27()
 #atv26()
 #atv25()
