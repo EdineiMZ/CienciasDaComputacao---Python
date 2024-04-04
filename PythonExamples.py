@@ -722,8 +722,7 @@ def atv33():
             print('Menor de idade')
 def atv34():
     for count in range(1, 101):
-        par = count % 2
-        if par == 0:
+        if count % 2 == 0:
             print(count)
 
 atv34()
