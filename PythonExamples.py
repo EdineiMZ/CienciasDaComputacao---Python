@@ -6,6 +6,7 @@ import random
 import time
 import requests
 import sqlite3
+from randomic import *
 
 #mensagem de boas vindas
 print("Hello Word!!!")
@@ -211,27 +212,6 @@ def TESTEAPI():
         print('Erro ao acessar')
 
 def atv14():
-    nomes_produtos = [
-        'Computador', 'Tablet', 'Smartphone', 'Câmera', 'Fones de Ouvido',
-        'Teclado', 'Mouse', 'Monitor', 'Impressora', 'Carregador',
-        'Caixa de Som', 'Roteador', 'Cadeira', 'Mesa', 'Laptop',
-        'Drone', 'Relógio', 'Headset', 'Microfone', 'Power Bank',
-        'Geladeira', 'Liquidificador', 'Fogão', 'Aspirador de Pó',
-        'Máquina de Lavar', 'Secador de Cabelo', 'Ventilador', 'Aparelho de Som',
-        'Cafeteira', 'Panela Elétrica', 'Sanduicheira', 'Ferro de Passar',
-        'Torradeira', 'Espremedor de Frutas', 'Freezer', 'Ar Condicionado',
-        'Micro-ondas', 'Batedeira', 'Tábua de Passar', 'Fritadeira Elétrica',
-        'Processador de Alimentos', 'Chuveiro Elétrico', 'Mixer', 'Cama',
-        'Guarda-Roupa', 'Sofá', 'Escrivaninha', 'Estante', 'Cadeira de Escritório',
-        'Poltrona', 'Mesa de Jantar', 'Cômoda', 'Criado-Mudo', 'Cortina',
-        'Tapete', 'Lustre', 'Abajur', 'Persiana', 'Quadro Decorativo',
-        'Moldura', 'Vaso Decorativo', 'Relógio de Parede', 'Espelho',
-        'Almofada', 'Cesto de Roupa', 'Puff', 'Lixeira', 'Toalha de Banho',
-        'Saboneteira', 'Porta Shampoo', 'Tapete de Banheiro', 'Cesto Organizador',
-        'Porta-Retrato', 'Vela Aromática', 'Aromatizador de Ambiente', 'Jogo de Cama',
-        'Colcha', 'Edredom', 'Travesseiro', 'Cobre-Leito', 'Lençol',
-        'Almofada Decorativa', 'Protetor de Colchão', 'Manta', 'Capa de Almofada'
-    ]
     valorProduto = round(random.uniform(0, 70), 2)
     if valorProduto < 10:
         lucro = 70
@@ -242,7 +222,7 @@ def atv14():
     else:
         lucro = 30
     lucroVenda = valorProduto * lucro / 100
-    produto = random.choice(nomes_produtos)
+    produto = randomProd()
     print("O valor do produto", produto,"é de R$ ", valorProduto)
     print("Por isso a margem de lucro é de", f"{lucro:.2f}","%")
     print("Sendo vendido com um lucro de", f"{lucroVenda:.2f}")
@@ -337,36 +317,17 @@ def atv18():
     print("Os valores ordenados de forma decressente são: ", ordenacao)
 
 def atv19():
-    times_de_futebol = {
-        "Real Madrid", "Barcelona", "Manchester United", "Liverpool", "Bayern de Munique",
-        "Paris Saint-Germain", "Juventus", "Borussia Dortmund", "Chelsea", "Arsenal",
-        "Flamengo", "Corinthians", "São Paulo", "Palmeiras", "Santos", "Vasco da Gama",
-        "Grêmio", "Internacional", "Atlético Mineiro", "Cruzeiro", "Manchester City",
-        "Tottenham", "AC Milan", "Inter de Milão", "Roma", "Napoli", "Lazio", "Benfica",
-        "Porto", "Sporting Lisboa", "Ajax", "PSV Eindhoven", "Feyenoord", "Boca Juniors",
-        "River Plate", "Racing Club", "América de Cali", "Club América", "Seattle Sounders",
-        "LA Galaxy", "New York City FC", "Toronto FC", "Bayer Leverkusen", "RB Leipzig",
-        "Wolfsburg", "Schalke 04", "Hamburger SV", "Eintracht Frankfurt", "Atalanta",
-        "Lyon", "Marseille", "Monaco", "Bordeaux", "PSG", "Celtic", "Rangers", "Fulham",
-        "West Ham United", "Leicester City", "Everton", "Ajax", "Feyenoord",
-        "PSV Eindhoven"
-    }
+    time_sorteado1 = randomTimesFut()
+    time_sorteado2 = randomTimesFut()
+    numeroGolsTime1 = randomInt(0, 5)
+    numeroGolsTime2 = randomInt(0, 5)
 
-    time_sorteado1 = random.choice(list(times_de_futebol))
-    time_sorteado2 = random.choice(list(times_de_futebol))
-    numeroGolsTime1 = random.randint(0, 5)
-    numeroGolsTime2 = random.randint(0, 5)
-
-    if numeroGolsTime1 or numeroGolsTime2 < 0:
-        print("Valor invalido para o numero de gols")
+    if numeroGolsTime1 > numeroGolsTime2:
+        print("Time ", time_sorteado2, "perdeu com", numeroGolsTime1, "gols para o time ", time_sorteado1, "com ", numeroGolsTime2, "gols")
+    elif numeroGolsTime1 == numeroGolsTime2:
+        print("Time ", time_sorteado1, "empatou com o time ", time_sorteado2, " com ", numeroGolsTime2)
     else:
-
-        if numeroGolsTime1 > numeroGolsTime2:
-            print("Time ", time_sorteado2, "perdeu com", numeroGolsTime1, "gols para o time ", time_sorteado1, "com ", numeroGolsTime2, "gols")
-        elif numeroGolsTime1 == numeroGolsTime2:
-            print("Time ", time_sorteado1, "empatou com o time ", time_sorteado2, " com ", numeroGolsTime2)
-        else:
-            print("Time ", time_sorteado1, "perdeu com", numeroGolsTime1, "gols para o time ", time_sorteado2, "com ", numeroGolsTime2, "gols")
+        print("Time ", time_sorteado1, "perdeu com", numeroGolsTime1, "gols para o time ", time_sorteado2, "com ", numeroGolsTime2, "gols")
 
 def atv20():
     idade = random.randint(0, 100)
@@ -710,6 +671,69 @@ def jogo():
     if __name__ == "__main__":
         jogo_legal()
 
+#repetição
+
+def repeticaoEx():
+    for count in range (1, 11):
+        print('Contagem', count)
+
+    for count in range (10, 0, -1):
+        print('Contagem', count)
+
+    # Exemplo do While (Enquanto) para encontrar uma chave
+    chave = random.randint(0, 50)  # Dev=fine o valor da chave de segurança
+    numero = 0
+    print("Chave definida", chave)
+    while numero != chave:  # define que enquanto o numero for direfente da chave, imprime valor incoreto
+        print("Valor Incoreto")
+        time.sleep(0.2)
+        numero = random.randint(0, 50)
+    print("Chave encontrada", numero)
+
+def atv29():
+    for count in range (1, 101):
+        print('Contagem', count)
+
+def atv30():
+    for count in range (100, 0, -1):
+        print('Contagem', count)
+
+def atv31():
+    for count in range (250, 501):
+        print('Contagem', count)
+
+#4)	Elabore um algoritmo que leia um número de entrada que indicará a quantidade de números a serem lidos.
+# Em seguida, leia n números (conforme o valor informado anteriormente) e imprima o triplo de cada um.
+def atv32():
+    QuantLeitura = random.randint(1, 500)
+    for n in range (1, QuantLeitura):
+        triplo = n * 3
+        print('Numero lido', n, 'triplo dele', triplo)
+
+def atv33():
+    pessoa = randonPessoas()
+    for count in range (1, 21):
+        pessoa = randonPessoas()
+        sobrenome = randomSobrenomes()
+        idade = randomInt(1, 90)
+        if idade > 18:
+            print('Parabéns', pessoa, sobrenome, 'voce ja fez 18 anos')
+        else:
+            print('Menor de idade')
+def atv34():
+    for count in range(1, 101):
+        par = count % 2
+        if par == 0:
+            print(count, 'Par')
+
+atv34()
+#atv33()
+#atv32()
+#atv31()
+#atv30()
+#atv29()
+#repeticaoEx()
+#jogo()
 #atv28()
 #atv27()
 #atv26()
@@ -744,41 +768,3 @@ def jogo():
 #atv1()
 #exemplo2()
 #exemplo1()
-
-
-# conjunto_produtos = {"Seleção de Temperos Internacionais", "Variedade de Geleias Artesanais",
-#                          "Barra de Granola Orgânica", "Chá de Especiarias Exóticas", "Chocolate Artesanal Premium",
-#                          "Café Gourmet", "Mix de Frutas Secas", "Biscoitos Artesanais", "Mel Puro",
-#                          "Azeite Extra Virgem", "Queijo Artesanal", "Vinho Tinto Reserva", "Cerveja Artesanal",
-#                          "Pacote de Massa Integral", "Molho de Tomate Caseiro", "Farinha de Trigo Orgânica",
-#                          "Snack de Castanhas", "Suco Natural de Frutas", "Lancheira Térmica",
-#                          "Garrafa de Água Reutilizável", "Copo de Bambu", "Tábua de Corte de Madeira",
-#                          "Conjunto de Facas de Cozinha", "Pote Hermético de Vidro", "Livro de Receitas Saudáveis",
-#                          "Assinatura de Clube de Degustação", "Kombucha Artesanal",
-#                          "Pão Integral de Fermentação Natural", "Sal Marinho Grosso", "Semente de Chia Orgânica",
-#                          "Sorvete Artesanal", "Barra de Chocolate Amargo", "Kit para Fazer Sushi em Casa",
-#                          "Tempero para Carne", "Ervas Finas Desidratadas", "Cookies de Aveia e Passas",
-#                          "Mix de Cogumelos Secos", "Mix de Ervas para Chá", "Xarope de Bordo Puro",
-#                          "Geleia de Frutas Vermelhas", "Pack de Cervejas Artesanais", "Kit para Fazer Pão Caseiro",
-#                          "Cesta de Café da Manhã", "Kit para Fazer Pizza em Casa", "Vinho Branco Seco",
-#                          "Aperitivo de Grão-de-Bico", "Chips de Batata Doce", "Salada de Quinoa Pronta",
-#                          "Manteiga de Amendoim Orgânica", "Canela em Pau", "Framboesas Frescas", "Salada de Lentilhas",
-#                          "Mix de Sementes Crocantes", "Bolachas de Arroz Integral", "Pasta de Amêndoas",
-#                          "Kit para Fazer Cerveja em Casa", "Garrafa Térmica de Café", "Moedor de Pimenta",
-#                          "Kit de Vinhos Internacionais", "Molho de Soja Orgânico", "Bebida de Amêndoa",
-#                          "Sorvete Vegano", "Cesta de Frutas Frescas", "Pack de Snacks Saudáveis",
-#                          "Barra de Proteína Vegana", "Pasta de Tomate Seco", "Melão Cantalupo", "Limões Sicilianos",
-#                          "Folhas de Manjericão Fresco", "Pacote de Cacau em Pó", "Cenouras Orgânicas",
-#                          "Bebida Energética Natural", "Biscoitos de Gengibre", "Salada de Frutas da Estação",
-#                          "Pão de Centeio Integral", "Gelatina de Algas Marinhas", "Chá Gelado de Hibisco",
-#                          "Baguete de Pão Francês", "Picles Artesanais", "Cereal Matinal Multigrãos",
-#                          "Sopa de Lentilhas e Vegetais", "Mix de Frutas Tropicais", "Brownies de Chocolate Sem Glúten",
-#                          "Pack de Água de Coco", "Feijão Preto Orgânico", "Tomates Cereja", "Pepinos em Conserva",
-#                          "Kit para Fazer Queijo Fresco", "Pacote de Sementes de Abóbora",
-#                          "Salada de Beterraba e Queijo Feta", "Torradas de Pão Integral",
-#                          "Granulado de Chocolate Amargo", "Pacote de Grãos de Café Arábica", "Chips de Banana-da-Terra",
-#                          "Molho de Pimenta Artesanal", "Kefir de Leite", "Suco Detox de Vegetais", "Muffins de Mirtilo",
-#                          "Mix de Nozes e Castanhas", "Pacote de Arroz Integral", "Cesta de Vegetais Orgânicos",
-#                          "Marmelada Caseira", "Pão de Queijo Tradicional", "Sopa de Abóbora com Gengibre",
-#                          "Pack de Cervejas Importadas", "Manteiga de Coco Orgânica", "Mix de Frutas Cristalizadas",
-#                          "Pack de Vinhos Nacionais"}
