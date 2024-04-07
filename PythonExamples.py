@@ -725,7 +725,18 @@ def atv34():
         if count % 2 == 0:
             print(count)
 
-atv34()
+
+def atv35():
+    for count in range(301, 402):
+        if count % 3 == 0:
+            print('Multiplo de 3',count)
+        else:
+            if count %  5 == 0:
+                print('Multiplo de 5', count)
+
+
+atv35()
+#atv34()
 #atv33()
 #atv32()
 #atv31()
