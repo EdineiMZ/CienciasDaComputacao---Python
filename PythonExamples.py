@@ -7,6 +7,8 @@ import time
 import requests
 import sqlite3
 from randomic import *
+from colorama import Fore,Back,Style
+
 
 #mensagem de boas vindas
 print("Hello Word!!!")
@@ -734,8 +736,110 @@ def atv35():
             if count %  5 == 0:
                 print('Multiplo de 5', count)
 
+def exemploCores():
+    class color:
+        BLACK = '\33[30m'
+        WHITE = '\33[40m'
 
-atv35()
+        RED = '\33[91m'  # ou 31
+        GREEN = '\033[92m'  # ou 32
+        YELLOW = '\033[93m'
+        BLUE = '\033[94m'
+        PURPLE = '\033[95m'
+        CYAN = '\033[96m'
+
+        BLACK_BACK = '\33[40m'
+        RED_BACK = '\33[41m'
+        GREEN_BACK = '\33[42m'
+        YELLOW_BACK = '\33[43m'
+        BLUE_BACK = '\33[44m'
+        GRAY_BACK = '\33[47m'
+
+        BOLD = '\033[1m'
+        UNDERLINE = '\033[4m'
+        END = '\033[0m'
+
+    print("Usar cores no terminal é " + color.BLUE_BACK + "divertido" + color.END + ", concorda?")
+    print("Eu " + color.BLACK + color.RED_BACK + color.UNDERLINE + "gosto" + color.END + " muito!")
+
+
+
+def colorama():
+    print(Fore.RED + 'some red text')
+    print(Back.GREEN + 'and with a green background')
+    print(Style.DIM + 'and in dim text')
+    print(Style.RESET_ALL)
+    print('back to normal now')
+    print(Back.RED + "Texto colorido" + Back.RESET + Fore.GREEN + " pela Colorama")
+    print(Style.RESET_ALL)
+
+def atv36():
+    frase = '1, 2, 3... testando'
+    for valor in range(1, 31):
+        if valor % 2 !=0:
+            print(Fore.RED + frase, valor)
+        else:
+            print(Fore.GREEN + frase, valor)
+
+def atv37():
+    for i in range(200, 221):
+        print(i, end="-") if i < 220 else print(i, end="")
+
+def atv38():
+#Escrever um programa que mostre os números múltiplos de 3 e de 5 existentes entre 301 e 401.
+# Os números múltiplos de 3 devem ser mostrados em azul
+# e os múltiplos de 5 em amarelo.
+# Quando o número for múltiplo de 3 e de 5, ele deverá ser mostrado em rosa (purple).
+# Se não for múltiplo nem de 3 e nem de 5, deverá ser mostrada em branco.
+    for i in range(301, 402):
+        if (i % 3 == 0) and (i % 5 == 0):
+            print(Fore.MAGENTA + str(i))
+        elif i % 5 == 0:
+            print(Fore.YELLOW + str(i))
+        elif i % 3 == 0:
+            print(Fore.BLUE + str(i))
+        else:
+            print(Fore.RESET + str(i))
+
+def atv39():
+#Elabore um algoritmo que leia 20 números inteiros.
+# Ao final deve ser informado quantos maiores que 10 foram lidos e a sua média.
+    valor = set()
+    for i in range(0, 10):
+        valores = randomInt(0, 30)
+        if valores > 10:
+            valor.add(valores)
+    media = sum(valor) / len(valor)
+    print('media dos numeros maiores que 10:', f"{media:.2f}")
+    print('Os numeros erram:', valor)
+
+def atv40():
+#Elabore um algoritmo que leia 200 números
+#imprima quantos são pares e quantos são ímpares.
+    impar = set()
+    par = set()
+    for i in range(0, 200):
+        numero = randomInt(0,1000)
+        if numero % 2 == 0:
+            par.add(i)
+        else:
+            impar.add(i)
+    print('Quantidade numeros pares:', len(par))
+    print('Quantidade numeros impar:', len(impar))
+
+
+
+
+
+
+atv40()
+#atv39()
+#atv38()
+#atv37()
+#atv36()
+#colorama()
+#exemploCores()
+#atv35()
 #atv34()
 #atv33()
 #atv32()
