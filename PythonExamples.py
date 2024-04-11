@@ -827,12 +827,24 @@ def atv40():
     print('Quantidade numeros pares:', len(par))
     print('Quantidade numeros impar:', len(impar))
 
+def atv41():
+    #Construir um programa para ler 20 números inteiros e encontrar o maior valor informado
+    conjunto = set()
+    for i in range(0, 20):
+        numero = randomInt(1, 100)
+        conjunto.add(numero)
+    print('maior valor do conjunto', max(conjunto))
 
 
+def atv42():
+    #Construir um programa para mostrar a tabuada de um número inteiro informado pelo usuário.
+    tabuada = int(input('Informe a tabuada desejada: '))
+    for i in range(1, 11):
+        print(tabuada, 'x' , i , '=' , tabuada * i )
 
-
-
-atv40()
+atv42()
+#atv41()
+#atv40()
 #atv39()
 #atv38()
 #atv37()
