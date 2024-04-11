@@ -838,9 +838,12 @@ def atv41():
 
 def atv42():
     #Construir um programa para mostrar a tabuada de um número inteiro informado pelo usuário.
-    tabuada = int(input('Informe a tabuada desejada: '))
-    for i in range(1, 11):
-        print(tabuada, 'x' , i , '=' , tabuada * i )
+    tabuada = int(input('Informe a tabuada desejada de 1 a 10: '))
+    if tabuada >= 1 and tabuada <= 10:
+        for i in range(1, 11):
+            print(tabuada, 'x' , i , '=' , tabuada * i )
+    else:
+        print('Valor inserido invalido! ')
 
 atv42()
 #atv41()
