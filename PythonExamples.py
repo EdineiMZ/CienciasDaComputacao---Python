@@ -845,7 +845,68 @@ def atv42():
     else:
         print('Valor inserido invalido! ')
 
-atv42()
+def atv43():
+    #Elabore um algoritmo que leia um número de entrada que indicará a quantidade de números a serem lidos.
+    #Em seguida, leia n números inteiros e positivos, e ao final, imprima o maior número digitado.
+    conjunto = set()
+    qtnumsort = randomInt(1, 100)
+
+    for i in range(1, qtnumsort):
+        numero = randomInt(1, 500)
+        conjunto.add(numero)
+    print('maior valor do conjunto', max(conjunto))
+
+def atv44():
+    #Elabore um algoritmo que leia um número de entrada n que indicará a quantidade de números a serem lidos.
+    #Em seguida, leia n números (conforme o valor informado anteriormente) e, ao final imprima o menor número digitado.
+    #Note que nesse caso não sabemos o intervalo dos valores possíveis, assim vamos usar outra informação: o maior número que pode ser armazenado em uma variável em Python é ‘inf’, portanto, se esse é o maior número possível, qualquer número será menor que ele.
+    n = randomInt(1, 500)
+    menor = float('inf')
+    for i in range(1, n):
+        numero = randomInt(-5000, 5000)
+        if numero < menor:
+            menorvalor = numero
+
+    print('Menor valor do conjunto', menorvalor)
+
+def atv45():
+    #Escrever um programa que gere 1 número randômico entre 1 e 100 e mostre os números contidos nesse intervalo.
+    # Por exemplo, se for sorteado o número 5, deve mostrar os números do 1 até o 5.  Mostar 10 números por linha.
+    conjunto = set()
+    intervalo = randomInt(1, 100)
+    contadorl = 1
+    print("Os numeros no intervalo de 1 a", intervalo, "são: " )
+    for i in range(1, intervalo + 1):
+        conjunto.add(i)
+        if contadorl == 10:
+            print(conjunto)
+            conjunto.clear()
+            contadorl = 1
+        elif contadorl != 10:
+            if i == intervalo:
+                print(conjunto)
+            else:
+                contadorl = contadorl + 1
+
+
+
+
+
+
+#Escrever um programa que gere 20 números aleatórios (randômicos) entre 0 e 100 e conte quantos desses são pares e quantos são impares.
+
+#Escrever um programa que gere e mostre 10 números aleatórios (randômicos) entre 50 e 100.  Em seguida mostre qual foi o maior valor gerado.  Note que nesse exercício o maior valor possível será 100 e o menor valor possível será 50.
+
+#Modifique o programa anterior para mostrar também o menor valor gerado.
+
+#Construa um programa que sorteie 50 números inteiros entre 0 e 500 e no final informe quantas vezes o valor 100 foi sorteado.
+
+
+
+atv45()
+#atv44()
+#atv43()
+#atv42()
 #atv41()
 #atv40()
 #atv39()
