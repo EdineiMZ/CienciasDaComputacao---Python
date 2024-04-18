@@ -872,38 +872,71 @@ def atv44():
 def atv45():
     #Escrever um programa que gere 1 número randômico entre 1 e 100 e mostre os números contidos nesse intervalo.
     # Por exemplo, se for sorteado o número 5, deve mostrar os números do 1 até o 5.  Mostar 10 números por linha.
-    conjunto = set()
+    conjunto = []
     intervalo = randomInt(1, 100)
     contadorl = 1
     print("Os numeros no intervalo de 1 a", intervalo, "são: " )
     for i in range(1, intervalo + 1):
-        conjunto.add(i)
+        conjunto.append(i)
         if contadorl == 10:
+            conjunto.sort()
             print(conjunto)
             conjunto.clear()
             contadorl = 1
         elif contadorl != 10:
             if i == intervalo:
+                conjunto.sort()
                 print(conjunto)
             else:
                 contadorl = contadorl + 1
 
+def atv46():
+    #Escrever um programa que gere 20 números aleatórios (randômicos) entre 0 e 100 e conte quantos desses são pares e quantos são impares.
+    contagem_par = 0
+    for i in range(0, 20):
+        random = randomInt(0, 100)
+        if random & 1:
+            break
+        else:
+            contagem_par = contagem_par + 1
+    print(contagem_par)
 
+def atv47():
+    #Escrever um programa que gere e mostre 10 números aleatórios (randômicos) entre 50 e 100.
+    #Em seguida mostre qual foi o maior valor gerado.
+    #Note que nesse exercício o maior valor possível será 100 e o menor valor possível será 50.
+    conjunto = set()
+    for i in range(1, 11):
+        random = randomInt(50, 100)
+        conjunto.add(random)
+    print('Maior valor sorteado:', max(conjunto))
 
-
-
-
-#Escrever um programa que gere 20 números aleatórios (randômicos) entre 0 e 100 e conte quantos desses são pares e quantos são impares.
-
-#Escrever um programa que gere e mostre 10 números aleatórios (randômicos) entre 50 e 100.  Em seguida mostre qual foi o maior valor gerado.  Note que nesse exercício o maior valor possível será 100 e o menor valor possível será 50.
-
-#Modifique o programa anterior para mostrar também o menor valor gerado.
+def atv48():
+    #Modifique o programa anterior para mostrar também o menor valor gerado.
+    #Escrever um programa que gere e mostre 10 números aleatórios (randômicos) entre 50 e 100.
+    #Em seguida mostre qual foi o maior valor gerado.
+    #Note que nesse exercício o maior valor possível será 100 e o menor valor possível será 50.
+    conjunto = set()
+    for i in range(1, 11):
+        random = randomInt(50, 100)
+        conjunto.add(random)
+    print('Maior valor sorteado:', max(conjunto))
+    print('Menor valor sorteado:', min(conjunto))
 
 #Construa um programa que sorteie 50 números inteiros entre 0 e 500 e no final informe quantas vezes o valor 100 foi sorteado.
+def atv49():
+    conjunto = []
+    for i in range(0, 50):
+        random = randomInt(0, 500)
+        conjunto.append(random)
+    print('Numero 100 aparceu:', conjunto.count(100), ' vezes')
 
 
-
-atv45()
+atv49()
+#atv48()
+#atv47()
+#atv46()
+#atv45()
 #atv44()
 #atv43()
 #atv42()
