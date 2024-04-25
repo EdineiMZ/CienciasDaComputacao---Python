@@ -931,8 +931,50 @@ def atv49():
         conjunto.append(random)
     print('Numero 100 aparceu:', conjunto.count(100), ' vezes')
 
+def atv50():
+    #um algoritmo que imprima os números de 1 até 100 na tela.
+    #Divida-os em 20 números por linha.
+    conjunto = []
+    contadorl = 1
+    valor = 1
+    while valor <= 100:
+        conjunto.append(valor)
+        valor = valor + 1
+        if contadorl == 20:
+            conjunto.sort()
+            print(conjunto)
+            conjunto.clear()
+            contadorl = 1
+        else:
+            contadorl = contadorl + 1
+def atv51():
+    #Elabore um algoritmo que leia números inteiros e imprima o triplo de cada um.
+    #O algoritmo acaba quando número 999 for digitado (incluindo o triplo de 999).
+    numero = 0
+    while numero != 999 or numero != 2997:
+        numero = randomInt(998, 999)
+        valor = numero * 3
+        print('Numero', numero, '* 3 =', valor)
 
-atv49()
+def atv52():
+    #Elabore um algoritmo que leia números inteiros enquanto os valores informados forem positivos ou zero.
+    # Quando um número negativo for informado devem ser mostrados quantos números que foram digitados (incluindo o último número).
+    numinfor = 0
+    valor = randomInt(-50, 5000)
+    while valor >=0:
+        numinfor = numinfor + 1
+        valor = randomInt(-50, 5000)
+        print(valor)
+
+    numinfor = numinfor + 1
+    print(numinfor)
+
+
+
+#atv52()
+#atv51()
+#atv50()
+#atv49()
 #atv48()
 #atv47()
 #atv46()
