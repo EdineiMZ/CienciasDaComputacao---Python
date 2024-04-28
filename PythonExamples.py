@@ -11,7 +11,7 @@ from colorama import Fore,Back,Style
 
 
 #mensagem de boas vindas
-print("Hello Word!!!")
+print("Hello Wordy!!!")
 
 #Exemplos de utilização
 
@@ -692,6 +692,7 @@ def repeticaoEx():
         numero = random.randint(0, 50)
     print("Chave encontrada", numero)
 
+
 def atv29():
     for count in range (1, 101):
         print('Contagem', count)
@@ -969,8 +970,68 @@ def atv52():
     numinfor = numinfor + 1
     print(numinfor)
 
+def atv53():
+    #Construir um programa que gere números aleatórios ou randômicos entre 0 e 100, até que o valor zero seja sorteado.
+    # Em seguida mostre o maior e o menor valores sorteados.
+    # conjunto = []
+    # valor = 9
+    # while valor != 0:
+    #     valor = randomInt(0, 100)
+    #     if valor == 0:
+    #         print("Algo")
+    #     else:
+    #         conjunto.append(valor)
+    # conjunto.append(valor)
+    #
+    # print("O maior valor sorteado foi:", max(conjunto))
+    # print("O menor valor sorteado foi:", min(conjunto))
+    valormenor= float('inf')
+    valormaior = float('-inf')
+    valor = 8
+    while valor != 0:
+        valor = randomInt(0, 100)
+        if valor >=0 :
+            if valor > valormaior:
+                valormaior = valor
+            elif valor < valormenor:
+                valormenor = valor
+    print('Valor Maior', valormaior)
+    print('valor Menor', valormenor)
+
+def atv54():
+    #2. Construir um programa que solicite o nome, a idade e quantidade de filhos de uma quantidade indeterminada de pessoas enquanto o usuário responder ‘Sim’ (‘S’) a pergunta “Deseja continuar (S/N)?”.  Ao final apresente um relatório contendo:
+    #   a. O nome e idade da pessoa mais velha
+    #   b. O nome e quantidade de filhos da pessoa mais velha
+    #   c. O nome da pessoa com maior quantidade de filhos
+    opcao = 'S'
+    pmv = 0
+    pcmf = 0
+    while opcao == 'S':
+        nome = input('Qual o seu nome? ')
+        idade = int(input('Qual a sua idade? '))
+        filhos = int(input('Quantos filhos voce tem? '))
+        opcaoselect = input('Quer continuar? [S/N] ')
+        opcao = opcaoselect.upper()
+        if idade > pmv:
+            pmv = idade
+            npmv = nome
+            qdfdpmve = filhos
+        if filhos >= pcmf:
+            pcmf = filhos
+            npcmf = nome
+    print('A pessoa mais velha é:', npmv, 'Sua idade é:', pmv)
+    print('A quantidade de filhos da pessoa mais velha é:', qdfdpmve, 'Seu nome é:', npmv)
+    print('O nome da pessoa com maior quantidade de filhos é:', npcmf)
 
 
+
+
+
+
+
+
+atv54()
+#atv53()
 #atv52()
 #atv51()
 #atv50()
