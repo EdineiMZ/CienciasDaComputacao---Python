@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a4bc484-591f-4ca3-ae48-707b35b04594" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/CienciasDaComputacao.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PythonExamples.py" beforeDir="false" afterPath="$PROJECT_DIR$/PythonExamples.py" afterDir="false" />
     </list>
@@ -78,7 +76,7 @@
       <workItem from="1710714719609" duration="9896000" />
       <workItem from="1711318815950" duration="4980000" />
       <workItem from="1714323333303" duration="3369000" />
-      <workItem from="1714332207929" duration="5772000" />
+      <workItem from="1714332207929" duration="8531000" />
     </task>
     <servers />
   </component>
@@ -97,7 +95,7 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/PythonExamples_py$questoes.coverage" NAME="questoes Coverage Results" MODIFIED="1714338308545" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/PythonExamples_py$PythonExamples.coverage" NAME="PythonExamples Coverage Results" MODIFIED="1714338097827" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PythonExamples_py$questoes.coverage" NAME="questoes Coverage Results" MODIFIED="1714338401997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PythonExamples_py$PythonExamples.coverage" NAME="PythonExamples Coverage Results" MODIFIED="1714341331768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

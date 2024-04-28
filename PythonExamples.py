@@ -1002,32 +1002,49 @@ def atv54():
     #2. Construir um programa que solicite o nome, a idade e quantidade de filhos de uma quantidade indeterminada de pessoas enquanto o usuário responder ‘Sim’ (‘S’) a pergunta “Deseja continuar (S/N)?”.  Ao final apresente um relatório contendo:
     #   a. O nome e idade da pessoa mais velha
     #   b. O nome e quantidade de filhos da pessoa mais velha
-    #   c. O nome da pessoa com maior quantidade de filhos
-    opcao = 'S'
-    pmv = 0
-    pcmf = 0
-    while opcao == 'S':
-        nome = input('Qual o seu nome? ')
-        idade = int(input('Qual a sua idade? '))
-        filhos = int(input('Quantos filhos voce tem? '))
-        opcaoselect = input('Quer continuar? [S/N] ')
-        opcao = opcaoselect.upper()
-        if idade > pmv:
-            pmv = idade
-            npmv = nome
-            qdfdpmve = filhos
-        if filhos >= pcmf:
-            pcmf = filhos
-            npcmf = nome
-    print('A pessoa mais velha é:', npmv, 'Sua idade é:', pmv)
-    print('A quantidade de filhos da pessoa mais velha é:', qdfdpmve, 'Seu nome é:', npmv)
-    print('O nome da pessoa com maior quantidade de filhos é:', npcmf)
+    #   c. O nome da pessoa com maior quantidade de filho
 
+    def relatorio_pessoas(pessoas):
+        mais_velha = max(pessoas, key=lambda x: x['idade'])
+        mais_filhos = max(pessoas, key=lambda x: x['quantidade_filhos'])
+        print("a. Pessoa mais velha:")
+        print("   Nome:", mais_velha['nome'])
+        print("   Idade:", mais_velha['idade'])
+        print("b. Pessoa mais velha com quantidade de filhos:")
+        print("   Nome:", mais_velha['nome'])
+        print("   Quantidade de filhos:", mais_velha['quantidade_filhos'])
+        print("c. Pessoa com maior quantidade de filhos:")
+        print("   Nome:", mais_filhos['nome'])
 
+    pessoas = []
+    continuar = 'S'
 
+    while continuar == 'S':
+        nome = input("Digite o nome da pessoa: ")
+        while True:
+            idade = input("Digite a idade da pessoa: ")
+            if idade.isdigit():
+                idade = int(idade)
+                break
+            else:
+                print("Por favor, insira apenas números para a idade.")
+        while True:
+            quantidade_filhos = input("Digite a quantidade de filhos da pessoa: ")
+            if quantidade_filhos.isdigit():
+                quantidade_filhos = int(quantidade_filhos)
+                break
+            else:
+                print("Por favor, insira apenas números para a quantidade de filhos.")
 
+        pessoas.append({'nome': nome, 'idade': idade, 'quantidade_filhos': quantidade_filhos})
+        while True:
+            continuar = input("Deseja continuar (S/N)? ").upper()
+            if continuar in ['S', 'N']:
+                break
+            else:
+                print("Por favor, responda apenas com 'S' ou 'N'.")
 
-
+    relatorio_pessoas(pessoas)
 
 
 atv54()
