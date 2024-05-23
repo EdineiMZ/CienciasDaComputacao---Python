@@ -8,6 +8,7 @@ import requests
 import sqlite3
 from randomic import *
 from colorama import Fore,Back,Style
+from typing import Counter
 
 
 #mensagem de boas vindas
@@ -1047,7 +1048,145 @@ def atv54():
     relatorio_pessoas(pessoas)
 
 
-atv54()
+def atv55():
+    #Elaborar um algoritmo que solicite ao usuário um número entre 1 e 10. Caso o número esteja fora do intervalo definido, o sistema deve voltar a pedir o número (while). Em seguida deve ser mostrada a tabuada do número informado (for).
+    numero = 0
+    while numero < 1 or numero > 10:
+        numero = int(input("Digite um número entre 1 e 10: "))
+    for i in range(1, 11):
+        print(f"{numero} x {i} = {numero * i}")
+
+def atv56():
+    #Construir um programa que apresente os números impares existentes entre 1 e 499, inclusive, sua média e seu somatório.
+    impares = []
+    for i in range(1, 500):
+        if i % 2 != 0:
+            impares.append(i)
+    media = sum(impares) / len(impares)
+    somatorio = sum(impares)
+    print("Números ímpares:", impares)
+    print("Média:", media)
+    print("Somatório:", somatorio)
+
+def atv57():
+    #Construir um programa que lê as notas da prova de Algoritmos de uma turma de alunos e ao final apresenta um relatório contendo:
+    #a. A melhor nota
+    #b. A pior nota
+    #c. A média de todas das notas
+
+    notas = []
+    continuar = 'S'
+    while continuar == 'S':
+        nota = float(input("Digite a nota do aluno: "))
+        notas.append(nota)
+        continuar = input("Deseja continuar (S/N)? ").upper()
+    melhor_nota = max(notas)
+    pior_nota = min(notas)
+    media = sum(notas) / len(notas)
+    print("a. Melhor nota:", melhor_nota)
+    print("b. Pior nota:", pior_nota)
+    print("c. Média:", media)
+
+def atv58():
+    #. Construir um programa para registrar os dados referentes a preferência por canais de TV de pessoas entrevistadas.
+    #O usuário deve informar os seguintes dados de cada cliente entrevistado:
+    #a) Canal de TV que assiste mais (sendo 1-Globo, 2-SporTV, 3-Outra)
+    #b) Canal de streaming que assiste mais (sendo 1-Netflix, 2-Disney, 3-Outra)
+    #c) Idade da pessoa
+    #d) Nível de instrução (1 – ensino fundamental, 2- ensino médio, 3- ensino superior)
+    #Quando terminar de entrevistar as pessoas (respondendo à pergunta “Deseja continuar
+    #(S/N)?” ), deve ser apresentadas as seguintes informações:
+    #Canais de TV aberto e streaming mais assistidos
+    #Idade média das pessoas que assistem SporTV
+    #Nível de instrução das pessoas que responderam à pesquisa (percentual de cada)
+
+    def relatorio_entrevistados(entrevistados):
+        canais_tv = {1: 'Globo', 2: 'SporTV', 3: 'Outra'}
+        canais_streaming = {1: 'Netflix', 2: 'Disney', 3: 'Outra'}
+        canais_tv_mais_assistidos = Counter([entrevistado['canal_tv'] for entrevistado in entrevistados]).most_common(1)
+        canais_streaming_mais_assistidos = Counter([entrevistado['canal_streaming'] for entrevistado in entrevistados]).most_common(1)
+        idade_media_sportv = sum([entrevistado['idade'] for entrevistado in entrevistados if entrevistado['canal_tv'] == 2]) / len([entrevistado for entrevistado in entrevistados if entrevistado['canal_tv'] == 2])
+        nivel_instrucao = Counter([entrevistado['nivel_instrucao'] for entrevistado in entrevistados])
+        total_entrevistados = len(entrevistados)
+        print("Canais de TV aberto e streaming mais assistidos:")
+        print("  TV aberto:", canais_tv[canais_tv_mais_assistidos[0][0]])
+        print("  Streaming:", canais_streaming[canais_streaming_mais_assistidos[0][0]])
+        print("Idade média das pessoas que assistem SporTV:", idade_media_sportv)
+        print("Nível de instrução das pessoas que responderam à pesquisa:")
+        for nivel, quantidade in nivel_instrucao.items():
+            print(f"  Nível {nivel}: {quantidade / total_entrevistados * 100:.2f}%")
+
+    entrevistados = []
+    continuar = 'S'
+
+    while continuar == 'S':
+        canal_tv = int(input("Canal de TV que assiste mais (1-Globo, 2-SporTV, 3-Outra): "))
+        canal_streaming = int(input("Canal de streaming que assiste mais (1-Netflix, 2-Disney, 3-Outra): "))
+        idade = int(input("Idade da pessoa: "))
+        nivel_instrucao = int(input("Nível de instrução (1-ensino fundamental, 2-ensino médio, 3-ensino superior): "))
+        entrevistados.append({'canal_tv': canal_tv, 'canal_streaming': canal_streaming, 'idade': idade, 'nivel_instrucao': nivel_instrucao})
+        continuar = input("Deseja continuar (S/N)? ").upper()
+
+    relatorio_entrevistados(entrevistados)
+
+def atv59():
+    #Construir um programa que solicite o nome, a idade e quantidade de livros de uma quantidade indeterminada de escritores. Utilize a estratégia que preferir para fazer a leitura de todos os dados. Ao final apresente um relatório contendo:
+    #a. O nome e idade do escritor mais novo.
+    #b. O nome e quantidade de livros do escritor mais velho.
+    #c. O nome do escritor com maior quantidade de livros.
+
+    def relatorio_escritores(escritores):
+        mais_novo = min(escritores, key=lambda x: x['idade'])
+        mais_velho = max(escritores, key=lambda x: x['idade'])
+        mais_livros = max(escritores, key=lambda x: x['quantidade_livros'])
+        print("a. Escritor mais novo:")
+        print("   Nome:", mais_novo['nome'])
+        print("   Idade:", mais_novo['idade'])
+        print("b. Escritor mais velho:")
+        print("   Nome:", mais_velho['nome'])
+        print("   Quantidade de livros:", mais_velho['quantidade_livros'])
+        print("c. Escritor com maior quantidade de livros:")
+        print("   Nome:", mais_livros['nome'])
+
+    escritores = []
+    continuar = 'S'
+
+    while continuar == 'S':
+        nome = input("Digite o nome do escritor: ")
+        while True:
+            idade = input("Digite a idade do escritor: ")
+            if idade.isdigit():
+                idade = int(idade)
+                break
+            else:
+                print("Por favor, insira apenas números para a idade.")
+        while True:
+            quantidade_livros = input("Digite a quantidade de livros do escritor: ")
+            if quantidade_livros.isdigit():
+                quantidade_livros = int(quantidade_livros)
+                break
+            else:
+                print("Por favor, insira apenas números para a quantidade de livros.")
+
+        escritores.append({'nome': nome, 'idade': idade, 'quantidade_livros': quantidade_livros})
+        while True:
+            continuar = input("Deseja continuar (S/N)? ").upper()
+            if continuar in ['S', 'N']:
+                break
+            else:
+                print("Por favor, responda apenas com 'S' ou 'N'.")
+
+
+
+
+
+
+atv59()
+#atv58()
+#atv57()
+#atv56()
+#atv55()
+#atv54()
 #atv53()
 #atv52()
 #atv51()
