@@ -1196,9 +1196,29 @@ def atv60():
 #vetor A. Após a leitura dos dados o algoritmo deve multiplicar todos os números do vetor A por 3
 #e armazenar o resultado em um segundo vetor B. No final, mostrar o conteúdo dos 2 vetores
 
+def atv61():
+    A = []
+    B = []
+    for i in range(1, 16):
+        numero = int(input(f"Digite o número {i}: "))
+        A.append(numero)
+        B.append(numero * 3)
+    print("Vetor A:", A)
+    print("Vetor B:", B)
+
+#Elabore um algoritmo que leia valores inteiros para um vetor com 10 números e calcule a diferença entre o maior e o menor elemento existente.
+def atv62():
+    vetor = []
+    for i in range(1, 11):
+        numero = int(input(f"Digite o número {i}: "))
+        vetor.append(numero)
+    diferenca = max(vetor) - min(vetor)
+    print("Diferença entre o maior e o menor elemento:", diferenca)
 
 
 
+#atv62()
+#atv61()
 #atv60()
 #atv59()
 #atv58()
