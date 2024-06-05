@@ -1206,7 +1206,8 @@ def atv61():
     print("Vetor A:", A)
     print("Vetor B:", B)
 
-#Elabore um algoritmo que leia valores inteiros para um vetor com 10 números e calcule a diferença entre o maior e o menor elemento existente.
+#Elabore um algoritmo que leia valores inteiros para um vetor com 10 números e calcule a
+# diferença entre o maior e o menor elemento existente.
 def atv62():
     vetor = []
     for i in range(1, 11):
@@ -1215,8 +1216,20 @@ def atv62():
     diferenca = max(vetor) - min(vetor)
     print("Diferença entre o maior e o menor elemento:", diferenca)
 
+#Elabore um algoritmo que leia valores inteiros para um vetor com 10 números e calcule a
+#diferença entre as posições que maior e o menor elemento existentes ocupam.
+def atv63():
+    vetor = []
+    for i in range(1, 11):
+        numero = int(input(f"Digite o número {i}: "))
+        vetor.append(numero)
+    menor = vetor.index(min(vetor))
+    maior = vetor.index(max(vetor))
+    diferenca = abs(maior - menor)
+    print("Diferença entre as posições do maior e do menor elemento:", diferenca)
 
 
+atv63()
 #atv62()
 #atv61()
 #atv60()
