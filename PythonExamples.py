@@ -214,6 +214,10 @@ def TESTEAPI():
     else:
         print('Erro ao acessar')
 
+
+
+
+
 def atv14():
     valorProduto = round(random.uniform(0, 70), 2)
     if valorProduto < 10:
@@ -1176,12 +1180,27 @@ def atv59():
             else:
                 print("Por favor, responda apenas com 'S' ou 'N'.")
 
+    relatorio_escritores(escritores)
+
+
+#Implemente um algoritmo que leia as notas de 10 alunos armazenando-as em um vetor (matriz)
+#de 10 posições. Ao final, escreva na tela somente as notas maiores que 5.0.
+def atv60():
+    notas = []
+    for i in range(1, 11):
+        nota = float(input(f"Digite a nota do aluno {i}: "))
+        notas.append(nota)
+    print("Notas maiores que 5.0:", [nota for nota in notas if nota > 5.0])
+
+#Desenvolva um algoritmo que leia um conjunto de 15 números inteiros e armazene-os em um
+#vetor A. Após a leitura dos dados o algoritmo deve multiplicar todos os números do vetor A por 3
+#e armazenar o resultado em um segundo vetor B. No final, mostrar o conteúdo dos 2 vetores
 
 
 
 
-
-atv59()
+#atv60()
+#atv59()
 #atv58()
 #atv57()
 #atv56()
