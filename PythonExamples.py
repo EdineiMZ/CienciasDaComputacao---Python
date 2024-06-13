@@ -9,6 +9,9 @@ import sqlite3
 from randomic import *
 from colorama import Fore,Back,Style
 from typing import Counter
+import requests
+from PIL import Image, ImageTk
+import tkinter as tk
 
 
 #mensagem de boas vindas
@@ -1229,7 +1232,91 @@ def atv63():
     print("Diferença entre as posições do maior e do menor elemento:", diferenca)
 
 
-atv63()
+
+def atv64():
+    lista = [10, 20, 30, 40, 50]
+    print(len(lista), lista[1])
+
+def atv65():
+#1. Construir um programa que gere valores aleatórios para uma matriz 5x5 e em seguida
+#apresente e execute o seguinte menu:
+#1. Mostrar a matriz formatada
+#2. Mostrar a primeira linha
+#3. Mostrar a primeira coluna
+#4. Mostrar uma determinada posição solicitada pelo usuário (e validada pelo programa).
+#5. Sair
+    matriz = []
+    for i in range(5):
+        linha = []
+        for j in range(5):
+            linha.append(random.randint(0, 100))
+        matriz.append(linha)
+
+    while True:
+        print("1. Mostrar a matriz formatada")
+        print("2. Mostrar a primeira linha")
+        print("3. Mostrar a primeira coluna")
+        print("4. Mostrar uma determinada posição")
+        print("5. Sair")
+        opcao = int(input("Digite a opção desejada: "))
+        if opcao == 1:
+            for linha in matriz:
+                print(linha)
+        elif opcao == 2:
+            print(matriz[0])
+        elif opcao == 3:
+            for linha in matriz:
+                print(linha[0])
+        elif opcao == 4:
+            linha = int(input("Digite a linha: "))
+            coluna = int(input("Digite a coluna: "))
+            print(matriz[linha][coluna])
+        elif opcao == 5:
+            break
+        else:
+            print("Opção inválida.")
+
+def atv66():
+#2. Construir um programa que gere valores aleatórios (entre 0 e 100) para uma matriz 5x5 e emseguida apresente/execute o seguinte menu:
+#1. Mostrar a matriz
+#2. Mostrar o maior e o menor valores da matriz
+#3. Mostrar a média de todos os valores da matriz
+#4. Sair
+
+    matriz = []
+    for i in range(5):
+        linha = []
+        for j in range(5):
+            linha.append(random.randint(0, 100))
+        matriz.append(linha)
+
+    while True:
+        print("1. Mostrar a matriz")
+        print("2. Mostrar o maior e o menor valores da matriz")
+        print("3. Mostrar a média de todos os valores da matriz")
+        print("4. Sair")
+        opcao = int(input("Digite a opção desejada: "))
+        if opcao == 1:
+            for linha in matriz:
+                print(linha)
+        elif opcao == 2:
+            valores = [valor for linha in matriz for valor in linha]
+            print("Maior valor:", max(valores))
+            print("Menor valor:", min(valores))
+        elif opcao == 3:
+            valores = [valor for linha in matriz for valor in linha]
+            media = sum(valores) / len(valores)
+            print("Média:", media)
+        elif opcao == 4:
+            break
+        else:
+            print("Opção inválida.")
+
+
+
+atv65()
+#atv64()
+#atv63()
 #atv62()
 #atv61()
 #atv60()
